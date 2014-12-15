@@ -281,6 +281,7 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <Content Include="Views\Package\Index.cshtml" />
+    <Content Include="Views\Package\Create.cshtml" />
     <None Include="Web References\PackageWS\PackageWebService.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -322,10 +323,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <None Include="Web References\PackageWS\PackageWebService.wsdl" />
-    <Content Include="Web References\PackageWS\Reference.map">
+    <None Include="Web References\PackageWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

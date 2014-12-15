@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Protocols;
 using WebClient.PackageWS;
 
 namespace WebClient.Controllers
@@ -50,14 +51,16 @@ namespace WebClient.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            var p = new package {user_id = Convert.ToInt32(Request.Form["user_id"]), content = Request.Form["content"]};
+
             try
             {
-                // TODO: Add insert logic here
-
+                _packageWebServer.addPackage(p);
                 return RedirectToAction("Index");
             }
-            catch
+            catch (SoapException exception)
             {
+                Debug.WriteLine(exception.Message);
                 return View();
             }
         }

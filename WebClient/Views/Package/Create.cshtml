@@ -1,0 +1,26 @@
+﻿@using WebClient.PackageWS
+@model package
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Package</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>User Id</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.user_id)
+                @Html.TextBoxFor(m => m.user_id)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.content)
+                @Html.TextBoxFor(m => m.content)
+            </li>
+        </ol>
+        <input type="submit" value="Create Package"/>
+    </fieldset>
+}
