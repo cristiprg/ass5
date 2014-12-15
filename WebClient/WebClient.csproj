@@ -195,6 +195,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Web References\PackageStatusWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\PackageWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -277,11 +282,17 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <None Include="Web References\PackageStatusWS\PackageStatusWebService.disco" />
     <Content Include="Web References\PackageWS\package.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <Content Include="Views\Package\Index.cshtml" />
     <Content Include="Views\Package\Create.cshtml" />
+    <None Include="Web References\PackageStatusWS\PackageStatusWebService.wsdl" />
+    <None Include="Web References\PackageStatusWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\PackageWS\PackageWebService.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -341,6 +352,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:3624/PackageStatusWebService.asmx%3fop=UpdatePackageStatus">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PackageStatusWS\</RelPath>
+      <UpdateFromURL>http://localhost:3624/PackageStatusWebService.asmx%3fop=UpdatePackageStatus</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebClient_PackageStatusWS_PackageStatusWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:7087/PackageWebService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\PackageWS\</RelPath>

@@ -32,5 +32,15 @@ namespace WebClient.Properties {
                 return ((string)(this["WebClient_PackageWS_PackageWebService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:3624/PackageStatusWebService.asmx")]
+        public string WebClient_PackageStatusWS_PackageStatusWebService {
+            get {
+                return ((string)(this["WebClient_PackageStatusWS_PackageStatusWebService"]));
+            }
+        }
     }
 }

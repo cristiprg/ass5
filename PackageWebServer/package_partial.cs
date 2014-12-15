@@ -2,7 +2,7 @@
 {
     public partial class package
     {
-        private enum PackageStatusType
+        public enum PackageStatusType
         {
             Pending,
             Accepted,

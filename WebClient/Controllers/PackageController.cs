@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Services.Protocols;
 using PackageWebServer;
+using WebClient.PackageStatusWS;
 using package = WebClient.PackageWS.package;
 using PackageWebService = WebClient.PackageWS.PackageWebService;
 
@@ -14,7 +15,7 @@ namespace WebClient.Controllers
     public class PackageController : Controller
     {
         private readonly PackageWebService _packageWebServer = new PackageWebService();
-
+        private readonly PackageStatusWebService _packageStatusWebStatusWebService = new PackageStatusWebService();
         //
         // GET: /Package/
 
@@ -121,9 +122,13 @@ namespace WebClient.Controllers
 
         public ActionResult Register(string user_id, string package_id)
         {
-            Debug.WriteLine("user id = "+user_id);
-            Debug.WriteLine("package id = " + package_id);
             _packageWebServer.registerPackage(Convert.ToInt32(user_id), Convert.ToInt32(package_id));
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult UpdateStatus(int package_id)
+        {
+            _packageStatusWebStatusWebService.UpdatePackageStatus(package_id);
             return RedirectToAction("Index");
         }
     }

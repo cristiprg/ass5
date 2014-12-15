@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ed61f6f87ee24b038d504ca050143c1e" Name="Diagram1">
+      <Diagram DiagramId="b3dbbfac1e82488e816a940066cfe456" Name="Diagram1">
         <EntityTypeShape EntityType="packagetrackingModel1.package_tracker" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>

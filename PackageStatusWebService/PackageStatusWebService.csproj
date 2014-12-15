@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{22A430E9-F076-4AC1-B517-7E8C1A59A02C}</ProjectGuid>
+    <ProjectGuid>{9FE5C05B-ECE1-457D-AF58-440C951D678E}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PackageWebServer</RootNamespace>
-    <AssemblyName>PackageWebServer</AssemblyName>
+    <RootNamespace>PackageStatusWebService</RootNamespace>
+    <AssemblyName>PackageStatusWebService</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -63,7 +63,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PackageWebService.asmx" />
+    <Content Include="PackageStatusWebService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -85,37 +85,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PackageDataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="PackagetrackerDataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PackagetrackerDataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PackagetrackerDataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PackagetrackerDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PackagetrackerDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PackagetrackerDataModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="PackageWebService.asmx.cs">
-      <DependentUpon>PackageWebService.asmx</DependentUpon>
+    <Compile Include="PackageStatusWebService.asmx.cs">
+      <DependentUpon>PackageStatusWebService.asmx</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="package_partial.cs" />
-    <Compile Include="package_tracker.cs">
-      <DependentUpon>PackagetrackerDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
     <EntityDeploy Include="PackageDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PackageDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="PackageDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PackageDataModel.edmx</DependentUpon>
@@ -129,29 +111,7 @@
       <DependentUpon>PackageDataModel.edmx</DependentUpon>
       <LastGenOutput>PackageDataModel.cs</LastGenOutput>
     </Content>
-    <EntityDeploy Include="PackagetrackerDataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PackagetrackerDataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="PackagetrackerDataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PackagetrackerDataModel.edmx</DependentUpon>
-      <LastGenOutput>PackagetrackerDataModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="PackagetrackerDataModel.edmx.diagram">
-      <DependentUpon>PackagetrackerDataModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="PackagetrackerDataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PackagetrackerDataModel.edmx</DependentUpon>
-      <LastGenOutput>PackagetrackerDataModel.cs</LastGenOutput>
-    </Content>
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
+    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -169,9 +129,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>7087</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:7087/</IISUrl>
+          <IISUrl>http://localhost:3624/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

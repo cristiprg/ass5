@@ -26,6 +26,7 @@
                 <td>@p.content</td>
                 <td>@p.status</td>
                 <td>@Html.ActionLink("Register", "Register", "Package", new{ user_id = p.user_id, package_id = p.id}, null)</td>
+                <td>@Html.ActionLink("Update to Next Status", "UpdateStatus", "Package", new { package_id=p.id }, null)</td>
             </tr>
         }
     </table>
