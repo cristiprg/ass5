@@ -85,11 +85,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PackageDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="PackageTrackingDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PackageTrackingDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageTrackingDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PackageTrackingDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageTrackingDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PackageTrackingDataModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="PackageWebService.asmx.cs">
       <DependentUpon>PackageWebService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="package_partial.cs" />
+    <Compile Include="package_tracker.cs">
+      <DependentUpon>PackageTrackingDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +128,23 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PackageDataModel.edmx</DependentUpon>
       <LastGenOutput>PackageDataModel.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="PackageTrackingDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PackageTrackingDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="PackageTrackingDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PackageTrackingDataModel.edmx</DependentUpon>
+      <LastGenOutput>PackageTrackingDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PackageTrackingDataModel.edmx.diagram">
+      <DependentUpon>PackageTrackingDataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="PackageTrackingDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PackageTrackingDataModel.edmx</DependentUpon>
+      <LastGenOutput>PackageTrackingDataModel.cs</LastGenOutput>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

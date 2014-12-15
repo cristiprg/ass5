@@ -5,7 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Services.Protocols;
-using WebClient.PackageWS;
+using PackageWebServer;
+using package = WebClient.PackageWS.package;
+using PackageWebService = WebClient.PackageWS.PackageWebService;
 
 namespace WebClient.Controllers
 {
@@ -115,6 +117,14 @@ namespace WebClient.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult Register(string user_id, string package_id)
+        {
+            Debug.WriteLine("user id = "+user_id);
+            Debug.WriteLine("package id = " + package_id);
+            _packageWebServer.registerPackage(Convert.ToInt32(user_id), Convert.ToInt32(package_id));
+            return RedirectToAction("Index");
         }
     }
 }

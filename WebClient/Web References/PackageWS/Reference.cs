@@ -33,6 +33,8 @@ namespace WebClient.PackageWS {
         
         private System.Threading.SendOrPostCallback getAllPackagesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback registerPackageOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -76,6 +78,9 @@ namespace WebClient.PackageWS {
         
         /// <remarks/>
         public event getAllPackagesCompletedEventHandler getAllPackagesCompleted;
+        
+        /// <remarks/>
+        public event registerPackageCompletedEventHandler registerPackageCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/addPackage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -129,6 +134,36 @@ namespace WebClient.PackageWS {
             if ((this.getAllPackagesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.getAllPackagesCompleted(this, new getAllPackagesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/registerPackage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void registerPackage(int user_id, int package_id) {
+            this.Invoke("registerPackage", new object[] {
+                        user_id,
+                        package_id});
+        }
+        
+        /// <remarks/>
+        public void registerPackageAsync(int user_id, int package_id) {
+            this.registerPackageAsync(user_id, package_id, null);
+        }
+        
+        /// <remarks/>
+        public void registerPackageAsync(int user_id, int package_id, object userState) {
+            if ((this.registerPackageOperationCompleted == null)) {
+                this.registerPackageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnregisterPackageOperationCompleted);
+            }
+            this.InvokeAsync("registerPackage", new object[] {
+                        user_id,
+                        package_id}, this.registerPackageOperationCompleted, userState);
+        }
+        
+        private void OnregisterPackageOperationCompleted(object arg) {
+            if ((this.registerPackageCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.registerPackageCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -237,6 +272,10 @@ namespace WebClient.PackageWS {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.33440")]
+    public delegate void registerPackageCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

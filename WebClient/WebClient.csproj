@@ -353,6 +353,12 @@
       <CachedSettingsPropName>WebClient_PackageWS_PackageWebService</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PackageWebServer\PackageWebService.csproj">
+      <Project>{22A430E9-F076-4AC1-B517-7E8C1A59A02C}</Project>
+      <Name>PackageWebService</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

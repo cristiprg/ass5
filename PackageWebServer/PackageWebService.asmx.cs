@@ -17,13 +17,14 @@ namespace PackageWebServer
     // [System.Web.Script.Services.ScriptService]
     public class PackageWebService : System.Web.Services.WebService
     {
-        private readonly packagetrackingEntities db = new packagetrackingEntities();
+        private readonly packagetrackingEntities    db_package = new packagetrackingEntities();
+        private readonly packagetrackingEntities1   db_package_tracker = new packagetrackingEntities1();
 
         [WebMethod]
         public void addPackage(package p)
         {
-            db.packages.Add(p);
-            if (db.SaveChanges() != 1)
+            db_package.packages.Add(p);
+            if (db_package.SaveChanges() != 1)
             {
                 throw new SoapException();
             }
@@ -32,7 +33,18 @@ namespace PackageWebServer
         [WebMethod]
         public List<package> getAllPackages()
         {
-            return db.packages.ToList();
+            return db_package.packages.ToList();
+        }
+
+        [WebMethod]
+        public void registerPackage(int user_id, int package_id)
+        {
+            var p = new package_tracker {user_id = user_id, package_id = package_id};
+            db_package_tracker.package_tracker.Add(p);
+            if (db_package_tracker.SaveChanges() != 1)
+            {
+                throw new SoapException();
+            }
         }
     }
 }

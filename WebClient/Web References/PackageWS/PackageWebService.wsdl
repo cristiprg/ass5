@@ -35,6 +35,17 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="package" nillable="true" type="tns:package" />
         </s:sequence>
       </s:complexType>
+      <s:element name="registerPackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="user_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="package_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="registerPackageResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="addPackageSoapIn">
@@ -49,6 +60,12 @@
   <wsdl:message name="getAllPackagesSoapOut">
     <wsdl:part name="parameters" element="tns:getAllPackagesResponse" />
   </wsdl:message>
+  <wsdl:message name="registerPackageSoapIn">
+    <wsdl:part name="parameters" element="tns:registerPackage" />
+  </wsdl:message>
+  <wsdl:message name="registerPackageSoapOut">
+    <wsdl:part name="parameters" element="tns:registerPackageResponse" />
+  </wsdl:message>
   <wsdl:portType name="PackageWebServiceSoap">
     <wsdl:operation name="addPackage">
       <wsdl:input message="tns:addPackageSoapIn" />
@@ -57,6 +74,10 @@
     <wsdl:operation name="getAllPackages">
       <wsdl:input message="tns:getAllPackagesSoapIn" />
       <wsdl:output message="tns:getAllPackagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="registerPackage">
+      <wsdl:input message="tns:registerPackageSoapIn" />
+      <wsdl:output message="tns:registerPackageSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="PackageWebServiceSoap" type="tns:PackageWebServiceSoap">
@@ -79,6 +100,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="registerPackage">
+      <soap:operation soapAction="http://tempuri.org/registerPackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="PackageWebServiceSoap12" type="tns:PackageWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -93,6 +123,15 @@
     </wsdl:operation>
     <wsdl:operation name="getAllPackages">
       <soap12:operation soapAction="http://tempuri.org/getAllPackages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerPackage">
+      <soap12:operation soapAction="http://tempuri.org/registerPackage" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
