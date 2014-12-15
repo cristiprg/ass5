@@ -1,0 +1,33 @@
+﻿@using WebClient.PackageWS
+@model IEnumerable<package>
+
+@{
+    ViewBag.Title = "Packages";
+}
+
+<h2>Packages</h2>
+
+@if (Model != null)
+{
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>User Id</th>
+            <th>Content</th>
+            <th>Status</th>
+        </tr>
+        @foreach (package p in Model)
+        {
+            <tr>
+                <td>@p.id</td>
+                <td>@p.user_id</td>
+                <td>@p.content</td>
+                <td>@p.status</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>Ii oprit cumva MySQL-ul?</p>
+}
