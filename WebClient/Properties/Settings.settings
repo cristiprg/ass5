@@ -8,5 +8,8 @@
     <Setting Name="WebClient_PackageStatusWS_PackageStatusWebService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:3624/PackageStatusWebService.asmx</Value>
     </Setting>
+    <Setting Name="WebClient_UserWS_UserWebServiceService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/UserWebService/services/UserWebService</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:intf="http://UserWS" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://UserWS" targetNamespace="http://UserWS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://UserWS">
+      <xsd:element name="USerWebServiceAdd">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="a" type="xsd:int" />
+            <xsd:element name="b" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="USerWebServiceAddResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="USerWebServiceAddReturn" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="USerWebServiceAddRequest">
+    <wsdl:part name="parameters" element="impl:USerWebServiceAdd" />
+  </wsdl:message>
+  <wsdl:message name="USerWebServiceAddResponse">
+    <wsdl:part name="parameters" element="impl:USerWebServiceAddResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UserWebService">
+    <wsdl:operation name="USerWebServiceAdd">
+      <wsdl:input name="USerWebServiceAddRequest" message="impl:USerWebServiceAddRequest" />
+      <wsdl:output name="USerWebServiceAddResponse" message="impl:USerWebServiceAddResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserWebServiceSoapBinding" type="impl:UserWebService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="USerWebServiceAdd">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="USerWebServiceAddRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="USerWebServiceAddResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserWebServiceService">
+    <wsdl:port name="UserWebService" binding="impl:UserWebServiceSoapBinding">
+      <wsdlsoap:address location="http://localhost:8080/UserWebService/services/UserWebService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

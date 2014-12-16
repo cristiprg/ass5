@@ -42,5 +42,15 @@ namespace WebClient.Properties {
                 return ((string)(this["WebClient_PackageStatusWS_PackageStatusWebService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:8080/UserWebService/services/UserWebService")]
+        public string WebClient_UserWS_UserWebServiceService {
+            get {
+                return ((string)(this["WebClient_UserWS_UserWebServiceService"]));
+            }
+        }
     }
 }
