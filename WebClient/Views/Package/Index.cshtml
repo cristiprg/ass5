@@ -14,20 +14,34 @@
     <table>
         <tr>
             <th>Id</th>
-            <th>User Id</th>
-            <th>Content</th>
+            <th>User</th>
             <th>Status</th>
+            <th>&nbsp</th>
         </tr>
         @foreach (package p in Model)
         {
             <tr>
                 <td>@p.id</td>
                 <td>@p.user_id</td>
-                <td>@p.content</td>
-                <td>@p.status</td>
-                <td>@Html.ActionLink("Register", "Register", "Package", new{ user_id = p.user_id, package_id = p.id}, null)</td>
-                <td>@Html.ActionLink("Update to Next Status", "UpdateStatus", "Package", new { package_id=p.id }, null)</td>
+                
+                <td>Pasul nr. @p.status</td>
+                @*<td>@Html.ActionLink("Register", "Register", "Package", new{ user_id = p.user_id, package_id = p.id}, null)</td>*@
+                <td>@Html.ActionLink("Update Status", "UpdateStatus", "Package", new { package_id=p.id }, null)</td>
             </tr>
+
+            <tr>
+                <td colspan="2">@p.content</td>
+                    @using(Html.BeginForm("UpdatePackageStatus", "Package"))
+                    {<fieldset>
+                    <td>
+                         @Html.TextBox("status")
+                         @Html.Hidden("package_id", p.id)
+                    </td><td>
+                         <input type="submit" value="Update"/>
+                    </td>
+                     </fieldset>}
+            </tr>
+            
         }
     </table>
 }

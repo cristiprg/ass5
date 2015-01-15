@@ -30,5 +30,16 @@ namespace PackageStatusWebService
                throw new Exception("Error occured while updating package " +  package_id);
             }
         }
+
+        [WebMethod]
+        public void UpdatePackageContent(int package_id, String content)
+        {
+            var p = db_package.packages.Single(j => j.id == package_id);
+            p.content += content + " - ";
+            if (db_package.SaveChanges() != 1)
+            {
+                throw new Exception("Error occured while updating package " + package_id);
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Transactions;
 using System.Web;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
+using WebClient.UserWS;
 using WebMatrix.WebData;
 using WebClient.Filters;
 using WebClient.Models;
@@ -17,6 +19,8 @@ namespace WebClient.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
+        private readonly UserWebServiceService _userWebServiceService  = new UserWebServiceService();
+
         //
         // GET: /Account/Login
 
@@ -35,13 +39,31 @@ namespace WebClient.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            /*if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
                 return RedirectToLocal(returnUrl);
             }
+            */
 
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("", "Ceva e gresit!");
+            }
+
+            /*
+            User user = _userWebServiceService.findUserByUsernameAndPassword("admin", "admin");
+            Debug.WriteLine(user.id);
+            Debug.WriteLine(user.name);
+            Debug.WriteLine(user.username);
+            Debug.WriteLine(user.password);
+            Debug.WriteLine(user.type);
+            */
+            int user_id = _userWebServiceService.findUserByUsernameAndPassword("admin", "admin");
+            Debug.WriteLine("user_id = " + user_id);
+            Debug.WriteLine("1+2=" + _userWebServiceService.add(1, 2));
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "The user name or password provided is incorrect.");
+              
             return View(model);
         }
 

@@ -32,6 +32,16 @@ namespace WebClient.Controllers
             }
         }
 
+        public ActionResult UpdatePackageStatus(String status, int package_id)
+        {            
+            Debug.WriteLine("STATUS = " + status);
+            Debug.WriteLine("ID = " + package_id);
+
+            _packageStatusWebStatusWebService.UpdatePackageContent(package_id, status);
+
+            return RedirectToAction("Index");
+        }
+
         //
         // GET: /Package/Details/5
 
